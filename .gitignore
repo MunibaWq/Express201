@@ -1,0 +1,9 @@
+**/node_modules
+.vscode
+**/.eslintcache
+.env*
+secret.js
+/.vs/
+/.vs
+**/db/backup*.js*
+*.vs*

@@ -26,9 +26,9 @@ function validateUser(req, res, next) {
   // do some stuff with the DB
   //locals is property that is prebuilt into express and is attached to response.
   //   every piece of middleware will have access to locals becuase every piece of middleware has access to the response object
+  res.send("<h1>Main Page</h1>");
   res.locals.validated = true;
   console.log("VALIDATED RAN!");
-  console.log(res.locals.validated);
   next();
 }
 
@@ -44,6 +44,7 @@ app.get("/", validateUser);
 //the next object is what makes the (req,res, next) =>{}) a middleware function
 app.get("/", (req, res, next) => {
   res.send("<h1>Main Page</h1>");
+  console.log(res.locals.validated);
 });
 
 app.get("/admin", (req, res, next) => {

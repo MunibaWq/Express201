@@ -1,6 +1,9 @@
+const helmet = require("helmet");
 const { urlencoded } = require("body-parser");
 const express = require("express");
 const app = express();
+
+app.use(helmet()); //never miss adding helmet to your server
 
 app.use(express.static("public"));
 // express.json and urlencoded are the two pieces of middlware that create 'req.body'
@@ -17,3 +20,9 @@ app.post("/ajax", (req, res) => {
 });
 
 app.listen(3000);
+
+// helmet - VERY IMPORTANT TOO
+//It sets HTML headers right up front and protects you a whole bunch from well-known vulnerabilities
+// npm install helmet
+// require it
+// use it
